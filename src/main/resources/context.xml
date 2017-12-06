@@ -10,7 +10,18 @@
         <constructor-arg value="John Smith"/>
     </bean>
 
+    <bean id="event" class="com.spring.models.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date" scope="prototype"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+
     <bean id="eventLogger" class="com.spring.logger.ConsoleEventLogger"/>
+    <bean id="eventLogger" class="com.spring.logger.FileEventLogger" init-method="init" destroy-method="destroy">
+
+    </bean>
 
     <bean id="app" class="com.spring.app.App">
         <constructor-arg ref="client"/>
