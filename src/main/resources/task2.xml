@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans default-lazy-init="true"
+        xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+
+    <bean id="app" class="com.spring.app.task2.App">
+        <constructor-arg ref="newMap1"/>
+
+    </bean>
+        <bean id="a" class="com.spring.app.task2.A">
+        <constructor-arg ref="b"/>
+    </bean>
+
+    <bean id="b" class="com.spring.app.task2.B" scope="prototype">
+        <constructor-arg ref="c"/>
+    </bean>
+
+    <bean id="c" class="com.spring.app.task2.C"/>
+
+    <bean id="d" class="com.spring.app.task2.D" lazy-init="false">
+        <constructor-arg ref="b"/>
+    </bean>
+
+</beans>

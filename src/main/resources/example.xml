@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+        <util:map id="newMap">
+        <entry key="aaa">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+            </list>
+        </entry>
+    </util:map>
+
+    <util:map id="newMap1">
+        <entry key="aaa" value="['aaa','bbb','ccc']"/>
+        <entry key="bbb" value="['aaa','bbb','ccc']"/>
+    </util:map>
+
+    <util:map id="newMap2">
+        <entry key="aaa" value="#{{'aaa','bbb','ddd'}}"/>
+    </util:map>
+
+    <bean id="app" class="com.spring.app.NewApp">
+        <constructor-arg ref="newMap1"/>
+    </bean>
+
+</beans>
